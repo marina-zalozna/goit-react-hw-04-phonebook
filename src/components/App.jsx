@@ -48,6 +48,8 @@ export default function App () {
        localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
+  const visibleContacts = getVisibleContacts();
+
     return (
       <>
         <div>
@@ -57,7 +59,7 @@ export default function App () {
           <h2>Contacts</h2>
           <Filter value={filter} onChange={changeFilter}/>
           <ContactList
-            contacts={getVisibleContacts}
+            contacts={visibleContacts}
             onDeleteContact={deleteContact}
           />
         </div>
